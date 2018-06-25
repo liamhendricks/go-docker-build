@@ -1,0 +1,17 @@
+version: "3"
+
+networks:
+  default:
+    external:
+      name: docker-dev
+
+services:
+  gdbt:
+    image: liamhendricks/go-docker-build-test
+    container_name: gdbt
+    environment:
+      VIRTUAL_HOST: gdbt.loc
+    networks:
+      default:
+        aliases:
+          - gdbt.loc
